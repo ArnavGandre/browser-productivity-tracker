@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      width: 600px;
+      max-height: 600px;
+      overflow-y: auto;
+      margin: 0;
+      padding: 20px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: #f5f5f5;
+    }
+
+    h1 {
+      margin: 0 0 20px 0;
+      font-size: 24px;
+      color: #333;
+    }
+
+    h2 {
+      margin: 20px 0 10px 0;
+      font-size: 18px;
+      color: #555;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 5px;
+    }
+
+    .stats {
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+
+    th {
+      background: #4a90e2;
+      color: white;
+      padding: 12px;
+      text-align: left;
+      font-weight: 600;
+    }
+
+    td {
+      padding: 10px 12px;
+      border-bottom: 1px solid #eee;
+    }
+
+    tr:hover {
+      background: #f9f9f9;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .time {
+      font-weight: 600;
+      color: #4a90e2;
+    }
+
+    .channel-name {
+      color: #e74c3c;
+    }
+
+    .no-data {
+      text-align: center;
+      padding: 20px;
+      color: #999;
+      font-style: italic;
+    }
+
+    .controls {
+      margin-bottom: 20px;
+      display: flex;
+      gap: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background: #4a90e2;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    button:hover {
+      background: #357abd;
+    }
+
+    button.danger {
+      background: #e74c3c;
+    }
+
+    button.danger:hover {
+      background: #c0392b;
+    }
+
+    .total {
+      font-size: 16px;
+      font-weight: 600;
+      color: #333;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>📊 Browse Tracker</h1>
+
+  <div class="controls">
+    <button id="refresh">Refresh Data</button>
+    <button id="clearData" class="danger">Clear All Data</button>
+  </div>
+
+  <div class="stats">
+    <div class="total" id="totalTime">Total browsing time: Loading...</div>
+  </div>
+
+  <h2>🌐 Websites</h2>
+  <table id="websiteTable">
+    <thead>
+      <tr>
+        <th>Website</th>
+        <th>Time Spent</th>
+        <th>Visits</th>
+        <th>Last Visit</th>
+      </tr>
+    </thead>
+    <tbody id="websiteBody">
+      <tr><td colspan="4" class="no-data">Loading...</td></tr>
+    </tbody>
+  </table>
+
+  <h2>📺 YouTube Channels</h2>
+  <table id="youtubeTable">
+    <thead>
+      <tr>
+        <th>Channel</th>
+        <th>Time Watched</th>
+      </tr>
+    </thead>
+    <tbody id="youtubeBody">
+      <tr><td colspan="2" class="no-data">Loading...</td></tr>
+    </tbody>
+  </table>
+
+  <script src="popup.js"></script>
+</body>
+</html>
